@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import Header from "./assets/Register.png";
+import { Link } from "react-router-dom";
 
 function Register() {
   return (
@@ -52,9 +53,12 @@ function Register() {
           <label for="terms" style={{ marginLeft: "8px" }}>
             I Agree with privacy and policy
           </label>
-          <button className="btn btn-dark w-100 rounded-2 mb-2 shadow-sm mt-1">
+          <Link
+            to="/"
+            className="btn btn-dark w-100 rounded-2 mb-2 shadow-sm mt-1"
+          >
             Register
-          </button>
+          </Link>
         </form>
       </div>
     </div>
