@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import Logo from "./assets/Logo.png";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -33,10 +34,12 @@ function Login() {
           </button>
           <p className="mt-4">
             Don't have an account?{" "}
-            <strong style={{ color: "#9667e0", marginLeft: "4px" }}>
-              {" "}
-              Sign up
-            </strong>
+            <Link to="/register" className=" text-decoration-none">
+              <strong style={{ color: "#9667e0", marginLeft: "4px" }}>
+                {" "}
+                Sign up
+              </strong>
+            </Link>
           </p>
         </form>
       </div>

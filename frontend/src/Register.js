@@ -52,7 +52,7 @@ function Register() {
           <label for="terms" style={{ marginLeft: "8px" }}>
             I Agree with privacy and policy
           </label>
-          <button className="btn btn-dark w-100 rounded-2 mb-2 shadow-sm">
+          <button className="btn btn-dark w-100 rounded-2 mb-2 shadow-sm mt-1">
             Register
           </button>
         </form>
