@@ -12,12 +12,10 @@ O projeto é projetado para ser um exemplo prático e funcional de como construi
 
 <br/>
 
-<table>
-  <tr>
-    <td><img src='./frontend/src/assets/login_passcode.png' alt='Login Passcode' width='740' height='700' /></td>
-    <td><img src='./frontend/src/assets/register_passcode.png' alt='Register Passcode' width='740' height='700' /></td>
-  </tr>
-</table>
+
+  <img src='./frontend/src/assets/login_passcode.png' alt='Login Passcode' height='700' />
+  <img src='./frontend/src/assets/register_passcode.png' alt='Register Passcode' height='700' />
+
 
 ## 💻 Pré-requisitos
 
