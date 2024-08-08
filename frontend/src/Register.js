@@ -59,7 +59,7 @@ function Register() {
               <span className="text-danger">{errors.email}</span>
             )}
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="password">
               <strong>Password</strong>
             </label>
@@ -74,13 +74,13 @@ function Register() {
               <span className="text-danger">{errors.password}</span>
             )}
           </div>
-          <input type="checkbox" className="mt-4" id="terms" name="terms" />
+          <input type="checkbox" className="mt-0" id="terms" name="terms" />
           <label for="terms" style={{ marginLeft: "8px" }}>
             I Agree with privacy and policy
           </label>
           <button
             type="submit"
-            className="btn btn-dark w-100 rounded-2 mb-2 shadow-sm mt-1"
+            className="btn btn-dark w-100 rounded-2 mb-2 shadow-sm mt-1 mt-4"
           >
             Register
           </button>
