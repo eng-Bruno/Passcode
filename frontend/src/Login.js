@@ -1,9 +1,10 @@
 import React from "react";
 import "./index.css";
 import Logo from "./assets/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Validation from "./LoginValidation";
+import axios from "axios";
 
 function Login() {
   const [values, setValues] = useState({
@@ -11,6 +12,7 @@ function Login() {
     password: "",
   });
 
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
@@ -23,6 +25,18 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
+    if (errors.email === "" && errors.password === "") {
+      axios
+        .post("http://localhost:3301/login", values)
+        .then((res) => {
+          if (res.data === "Success") {
+            navigate("/home");
+          } else {
+            alert("User not found");
+          }
+        })
+        .catch((err) => navigate("/home"));
+    }
   };
 
   return (
@@ -55,8 +69,10 @@ function Login() {
               placeholder="Enter Password"
               name="password"
               onChange={handleInput}
+              data-toggle="tooltip"
               className="form-control rounded-2 shadow-sm"
             />
+
             {errors.password && (
               <span className="text-danger">{errors.password}</span>
             )}

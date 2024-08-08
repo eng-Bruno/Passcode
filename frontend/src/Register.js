@@ -1,9 +1,10 @@
 import React from "react";
 import "./index.css";
 import Header from "./assets/Register.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Validation from "./RegisterValidation";
 import { useState } from "react";
+import axios from "axios";
 
 function Register() {
   const [values, setValues] = useState({
@@ -12,6 +13,7 @@ function Register() {
     password: "",
   });
 
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
@@ -24,6 +26,14 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
+    if (errors.name === "" && errors.email === "" && errors.password === "") {
+      axios
+        .post("http://localhost:3301/register", values)
+        .then((res) => {
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -70,11 +80,27 @@ function Register() {
               placeholder="Enter Password"
               className="form-control rounded-2 shadow-sm"
             />
+            <div className="password-requirements mt-2">
+              <small>
+                <strong>Password Requirements:</strong>
+              </small>
+              <ul className="list-unstyled">
+                <li>&#10003; At least 8 characters long</li>
+                <li>&#10003; Includes uppercase letters</li>
+                <li>&#10003; Includes lowercase letters</li>
+                <li>&#10003; Includes numbers</li>
+              </ul>
+            </div>
             {errors.password && (
               <span className="text-danger">{errors.password}</span>
             )}
           </div>
-          <input type="checkbox" className="mt-0" id="terms" name="terms" />
+          <input
+            type="checkbox"
+            className="mt-3 mb-3"
+            id="terms"
+            name="terms"
+          />
           <label for="terms" style={{ marginLeft: "8px" }}>
             I Agree with privacy and policy
           </label>

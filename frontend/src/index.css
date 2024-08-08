@@ -15,3 +15,8 @@ code {
 * {
   font-family: "Roboto";
 }
+
+.password-help {
+  font-size: 0.875rem; /* Tamanho da fonte menor que o padrão */
+  color: #6c757d; /* Cor de texto secundário */
+}
